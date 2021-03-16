@@ -1,28 +1,29 @@
 import { Card } from "antd"
+import { Link } from 'react-router-dom';
 
-export default function ProductItem( { product }) {
+export default function ProductItem({ product }) {
     return (
-        <Card className="bg-gray product-item">
-            <a href="/">
-                <img 
-                    style={{width: '100%'}}
+        <Card className="bg-gray product">
+            <Link to={`/product/${product.id}`}>
+                <img
+                    style={{ width: '100%' }}
                     src={product.image}
                     alt={product.name} />
-            </a>
-            <div className="product-item-info">
-                <h6 className="product-item-category">
+            </Link>
+            <div className="product-info">
+                <h6 className="product-category">
                     {product.category}
                 </h6>
-                <h2 className="product-item-name">
+                <h2 className="product-name">
                     {product.name}
                 </h2>
-                <p className="product-item-description">
-                  {product.description}
+                <p className="product-description">
+                    {product.description}
                 </p>
-                <div className="product-item-more">
-                    <a href="/" className="product-item-link">
+                <div className="product-more">
+                    <Link to={`/product/${product.id}`} className="product-link">
                         See More ...
-                    </a>
+                    </Link>
                     <span
                         className="text-gray">
                         USD {product.price}.00
@@ -31,5 +32,4 @@ export default function ProductItem( { product }) {
             </div>
         </Card>
     );
-  }
-  
+}
