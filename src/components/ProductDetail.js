@@ -52,6 +52,20 @@ function ProductDetail({ product }) {
                   </Select>
                </p>
                <p className="product-qty">
+                  Color: {"   "}
+                  <Select 
+                     defaultValue={qty} 
+                     className="select-style"
+                     onChange={val=>setQty(val)}
+                  >
+                     {[...Array(product.countInStock).keys()].map((x) => (
+                        <Option key={x + 1} value={x + 1}>
+                           {x + 1}
+                        </Option>
+                     ))}
+                  </Select>
+               </p>
+               <p className="product-qty">
                   Total Price: {product.price * qty}
                </p>               
                <AddToCart />
