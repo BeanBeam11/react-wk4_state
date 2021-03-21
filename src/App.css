@@ -242,6 +242,10 @@ body {
   opacity: 0.7;
 }
 
+.option-color{
+  margin-left: 3rem;
+}
+
 .qty-number {
   color: white;
   background-color: #111828;

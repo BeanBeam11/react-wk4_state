@@ -7,6 +7,7 @@ const { Option } = Select;
 
 function ProductDetail({ product }) {
    const [qty, setQty] = useState(product.countInStock > 0 ? 1 : 0);
+   const [color, setColor] = useState(product.countInStock > 0 ? "White" : 0);
 
    return (
       <Row gutter={[32, 32]}>
@@ -50,23 +51,23 @@ function ProductDetail({ product }) {
                         </Option>
                      ))}
                   </Select>
-               </p>
-               <p className="product-qty">
+                  <span class="option-color">
                   Color: {"   "}
-                  <Select 
-                     defaultValue={qty} 
-                     className="select-style"
-                     onChange={val=>setQty(val)}
-                  >
-                     {[...Array(product.countInStock).keys()].map((x) => (
-                        <Option key={x + 1} value={x + 1}>
-                           {x + 1}
-                        </Option>
-                     ))}
-                  </Select>
+                     <Select 
+                        defaultValue={color} 
+                        className="select-style"
+                        onChange={val=>setColor(val)}
+                     >
+                        <Option value="White">White</Option>
+                        <Option value="Black">Black</Option>
+                        <Option value="Blue">Blue</Option>
+                     </Select>
+                  </span>
                </p>
                <p className="product-qty">
                   Total Price: {product.price * qty}
+                  <br></br>
+                  Color: {color}
                </p>               
                <AddToCart />
             </div>
